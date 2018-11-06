@@ -6,9 +6,17 @@ import { HeroesComponent } from '../app/heroes/heroes.component';
 import { DashboardComponent }   from '../app/dashboard/dashboard.component';
 import { HeroDetailComponent }  from '../app/hero-detail/hero-detail.component';
 
+import { HomeComponent } from '../app/pages/home.component';
+
+
 const routes: Routes = [
   // 添加自定义默认路由,这个路由会把一个与空路径“完全匹配”的 URL 重定向到路径为 '/dashboard' 的路由。
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+
+
+
+  // { path: 'detail/:id', component: HeroDetailComponent },
   // path 中的冒号（:）表示 :id 是一个占位符，它表示某个特定英雄的 id。
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'dashboard', component: DashboardComponent },

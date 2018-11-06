@@ -14,6 +14,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from '../router/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './pages/home.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [// 组件声明的地方
@@ -21,7 +23,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
