@@ -1,0 +1,125 @@
+<app-navtop></app-navtop>
+<!-- 内容区域 -->
+<!-- 内容区域 -->
+<div class="main">
+  <img src="./img/adv.png" class="sult_img" alt="">
+  <div class="consult_con">
+    <!-- 左边区域 -->
+    <ul class="consult_left">
+      <li class="sult_left_tab_on">个人分期贷款</li>
+      <li>个人贷款</li>
+      <li>银行贷款</li>
+      <li>小额贷款</li>
+      <li>新手贷款</li>
+      <li>抵押贷款</li>
+      <li>消费贷款</li>
+      <li>无抵押贷款</li>
+    </ul>
+    <!-- 中间区域 -->
+    <div class="consult_middle_midd">
+      <ul class="consult_middle">
+        <li *ngFor="let item of content">
+          <img src="{{item.img}}" alt="">
+          <div class="sult_detail">
+            <p>{{item.title}}</p>
+            <p>
+              <span>时间 :</span>
+              <span>  {{item.time}}</span>
+            </p>
+            <p>
+              <span>{{item.detail}}</span>
+              <span>[详情]</span>
+            </p>
+            <p>贷款</p>
+          </div>
+        </li>
+      </ul>
+      <!-- 页码区域 -->
+      <ul class="fast_yema disflex">
+        <li class="fast_on">
+          <p>首页</p>
+        </li>
+        <li class="fast_on">
+          <p>1</p>
+        </li>
+        <li>
+          <p>2</p>
+        </li>
+        <li>
+          <p>下一页</p>
+        </li>
+        <li>
+          <p>尾页</p>
+        </li>
+      </ul>
+    </div>
+    <!-- 右边区域 -->
+    <div class="consult_right">
+      <!-- 头部 -->
+      <div class="consult_right_top">
+        <div>
+          <p>快速申请贷款</p>
+          <p></p>
+        </div>
+        <p class="sult_qrcode">
+          <img src="../../../assets/img/qrcode.png" alt="二维码">
+          <span>扫一扫马上下载</span>
+        </p>
+      </div>
+      <!-- 中间区域 -->
+      <div class="consult_right_middle">
+        <div class="consult_con_title">
+          <p>热门咨询</p>
+          <p></p>
+        </div>
+        <ul>
+          <li class="sult_li_dian">
+            <img src="../../../assets/img/lidian.png" alt="">
+            <p>美团借钱怎么借？美团借钱上征信吗</p>
+          </li>
+          <li class="sult_li_dian">
+            <img src="../../../assets/img/lidian.png" alt="">
+            <p>美团借钱怎么借？美团借钱上征信吗</p>
+          </li>
+          <li class="sult_li_dian">
+            <img src="../../../assets/img/lidian.png" alt="">
+            <p>美团借钱怎么借？美团借钱上征信吗</p>
+          </li>
+          <li class="sult_li_dian">
+            <img src="../../../assets/img/lidian.png" alt="">
+            <p>美团借钱怎么借？美团借钱上征信吗</p>
+          </li>
+          <li class="sult_li_dian">
+            <img src="../../../assets/img/lidian.png" alt="">
+            <p>美团借钱怎么借？美团借钱上征信吗</p>
+          </li>
+          <li class="sult_li_dian">
+            <img src="../../../assets/img/lidian.png" alt="">
+            <p>美团借钱怎么借？美团借钱上征信吗</p>
+          </li>
+          <li class="sult_li_dian">
+            <img src="../../../assets/img/lidian.png" alt="">
+            <p>美团借钱怎么借？美团借钱上征信吗</p>
+          </li>
+        </ul>
+      </div>
+      <!-- 底部区域 -->
+      <div class="consult_right_bottom">
+        <div class="consult_con_title">
+          <p>热搜分类</p>
+          <p></p>
+        </div>
+        <ul class="disflex consul_flex_ul">
+          <li>美团小贷</li>
+          <li>美团小贷</li>
+          <li>小额贷款1000元</li>
+          <li>小额贷款1000元</li>
+          <li>美团小贷</li>
+          <li>小额贷款1000元</li>
+          <li>美团小贷</li>
+          <li>美团小贷</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

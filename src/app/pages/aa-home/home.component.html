@@ -1,0 +1,59 @@
+<app-navtop></app-navtop>
+<div class="indexTopImg" style="background:url(../../../assets/img/indexTopImg.png) no-repeat center top;background-size:cover;">
+</div>
+<div class="main">
+  <div class="contentHead">
+    <div class="headTitle">让借贷更简单</div>
+    <p>今日共 <em>8888</em> 个名额，剩余 <em>6498</em> 个名额！<span>提醒我</span></p>
+  </div>
+  <div class="contList clearfix">
+    <div class="contListLeft fl">
+      <div class="haedTitle disflex">
+        <p class="flexItem">最新上线</p>
+      </div>
+      <ul class="clearfix">
+        <li *ngFor="let item of home_list" (click)="Godetail()">
+          <img src="" alt="">
+          <h3>{{item.title}}</h3>
+          <p>{{item.detail}}</p>
+          <span>{{item.money}}</span>
+          <i>{{item.max}}</i>
+        </li>
+      </ul>
+    </div>
+    <div class="contListRight fr">
+      <div class="haedTitle disflex">
+        <p class="flexItem">编辑推荐</p>
+        <span>2018.10.24</span>
+      </div>
+      <ul>
+        <li class="disflex" *ngFor="let item of home_list1" (click)="Godetail()">
+          <img src="" alt="">
+          <div class="flexItem">
+            <h2>{{item.title}}</h2>
+            <p>{{item.detail}}</p>
+          </div>
+          <span>{{item.max}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="indexAc">
+    <img src="../../../assets/img/indexAc.png" alt="">
+    </div>
+    <div class="indexList">
+      <ul class="clearfix">
+        <li *ngFor="let item of list" (click)="Godetail()">
+          <div class="imgName">
+            <img src="" alt="">
+            <h2>{{item.title}}</h2>
+          </div>
+          <p>{{item.detail}}</p>
+          <h3>{{item.money}}</h3>
+          <span>{{item.danwei}}</span>
+          <i>{{item.max}}</i>
+          <input type="button" value="立即申请">
+        </li>
+      </ul>
+    </div>
+  </div>

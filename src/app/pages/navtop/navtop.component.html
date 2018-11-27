@@ -1,0 +1,12 @@
+
+  <!-- 头部 -->
+  <div class="head">
+    <div class="headBox clearfix">
+      <a class="logoBox fl" href=""><img src="../assets/img/logobox.png" alt=""></a>
+      <ul class="nav fr disflex">
+        <li class="flexItem" *ngFor="let item of list;let i = index" (click)="Goindex(i)">
+          <p [class]="item.select==true?'on':''">{{item.name}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>

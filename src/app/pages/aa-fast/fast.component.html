@@ -1,0 +1,41 @@
+<app-navtop></app-navtop>
+<!-- 内容区域 -->
+<div class="main">
+  <ul class="fast_content">
+    <li class="fast_oli" *ngFor="let item of list">
+      <a href="">
+        <p>
+          <img src="{{item.img}}" alt="">
+          <span>{{item.title}}</span>
+        </p>
+        <p>
+          <span>最高可借 : </span>
+          <span>{{item.money}}</span>
+        </p>
+        <p>
+          <span>{{item.lei1}}   </span>
+          <span>{{item.lei2}}</span>
+        </p>
+        <p>立即申请</p>
+      </a>
+    </li>
+  </ul>
+  <!-- 页码区域 -->
+  <ul class="fast_yema disflex">
+    <li class="fast_on">
+      <p>首页</p>
+    </li>
+    <li class="fast_on">
+      <p>1</p>
+    </li>
+    <li>
+      <p>2</p>
+    </li>
+    <li>
+      <p>下一页</p>
+    </li>
+    <li>
+      <p>尾页</p>
+    </li>
+  </ul>
+</div>

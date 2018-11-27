@@ -1,3 +1,45 @@
-.bd-navbar{
-  background-color: #563d7c;
+// .bd-navbar{
+//   background-color: #563d7c;
+// }
+.navbar{
+  width:100%;
+  min-width: 990px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  justify-content:flex-start;
+  .nav-logo{padding:0 0;}
+  .btn-menu{
+    padding:0.25rem 0.5rem;
+    position: absolute;
+    left:120px;
+    font:{
+      size:1rem;
+    }
+  }
+  .head-text{
+    color:#fff;
+    border:0;
+    line-height: 30px;
+    background:#343a40;
+    margin: 0 0 0 150px;
+    font:{size:1rem}
+  }
+  .search{
+    width:250px;
+    height:40px;
+  }
+  .head-ul{margin-left: 30px }
+  .navbar-nav{
+    .head-li{
+      a{
+        width:90px;
+        text-align: center;
+      }
+    }
+    .active{
+      border-bottom:1px solid #fff;
+    }
+  }
 }

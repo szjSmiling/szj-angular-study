@@ -1,11 +1,11 @@
 import { Hero } from './hero';
 export const Title: Hero[] = [
 // 定义一个包含十个英雄的常量数组HEROES，并导出
-  { id: 1, name: 'Mon' },
-  { id: 2, name: 'Tue' },
-  { id: 3, name: 'Wed' },
-  { id: 4, name: 'Thu' },
-  { id: 5, name: 'Fri' },
-  { id: 6, name: 'Sat' },
-  { id: 7, name: 'Sun' },
+  { id: 0, name: 'Mon', flag: true},
+  { id: 1, name: 'Tue', flag: false },
+  { id: 2, name: 'Wed', flag: false },
+  { id: 3, name: 'Thu', flag: false },
+  { id: 4, name: 'Fri', flag: false },
+  // { id: 5, name: 'Sat' },
+  // { id: 6, name: 'Sun' },
 ]

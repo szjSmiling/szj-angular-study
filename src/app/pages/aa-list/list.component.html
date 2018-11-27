@@ -1,0 +1,51 @@
+<app-navtop></app-navtop>
+<div class="main">
+  <div class="listScreen">
+    <dl class="clearfix">
+      <dt>综合排序：</dt>
+      <dd *ngFor="let item of xuanze;let i = index" [class]="item.select?'on':''" (click)="paixu(i)">{{item.name}}</dd>
+    </dl>
+    <dl class="clearfix">
+      <dt>额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</dt>
+      <dd *ngFor="let item of xuanze1;let i = index" [class]="item.select?'on':''" (click)="edu(i)">{{item.name}}</dd>
+    </dl>
+    <dl class="clearfix">
+      <dt>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</dt>
+      <dd *ngFor="let item of xuanze2;let i = index" [class]="item.select?'on':''" (click)="leixing(i)">{{item.name}}</dd>
+    </dl>
+  </div>
+  <div class="indexList listHtmlBox">
+    <ul class="clearfix">
+      <li *ngFor="let item of list">
+        <div class="imgName">
+          <img src="" alt="">
+          <h2>{{item.title}}</h2>
+        </div>
+        <p>{{item.detail}}</p>
+        <h3>{{item.money}}</h3>
+        <span>{{item.danwei}}</span>
+        <i>{{item.max}}</i>
+        <input type="button" value="立即申请">
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul class="fast_yema disflex">
+      <li class="fast_on">
+        <p>首页</p>
+      </li>
+      <li class="fast_on">
+        <p>1</p>
+      </li>
+      <li>
+        <p>2</p>
+      </li>
+      <li>
+        <p>下一页</p>
+      </li>
+      <li>
+        <p>尾页</p>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+#app-footer{
+  width:100%;
+  text-align: center;
+  background:#eee;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  .foot-top{
+    font-size:18px;
+    margin: 10px 0 0;
+    button{
+      border:0;
+      background: transparent;
+    }
+    a{
+      color:#f00;
+      padding:0 0.5rem;
+      text-decoration: none;
+    }
+  }
+  .foot-bottom{
+    display: block;
+    font-size:14px;
+    color:#999;
+    margin: 10px 0;
+  }
+  a:hover{color:#007bff;}
+}
