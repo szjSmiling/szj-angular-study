@@ -66,10 +66,10 @@ registerLocaleData(zh);
     HttpClientModule,
     NgZorroAntdModule.forRoot(),// NG-ZORRO设定
     BrowserAnimationsModule, // 注册动画模块
-    HttpClientInMemoryWebApiModule.forRoot(
     // forRoot() 配置方法接受一个 InMemoryDataService 类（初期的内存数据库）作为参数。
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // ),
   ],
   providers: [
     // 解决服务器上刷新404的问题,这样路径中会有# ,很难看

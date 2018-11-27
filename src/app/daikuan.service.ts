@@ -13,7 +13,7 @@ export class DaikuanService {
   }
   // 本地json文件请求
   getHomeInfo(){
-    return this.http.get("../assets/data.json")
+    return this.http.get("../assets/list.json")
   }
 
 }
