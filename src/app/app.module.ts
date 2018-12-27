@@ -16,6 +16,9 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 // nz-date-picker 的部分 locale 来自于 Angular 自身的国际化支持，需要在 main.ts文件中 引入相应的 Angular 语言包
 
+// szj-study angular's kind of function
+import { szjIndex } from './study/index';
+
 // 组件
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
@@ -46,11 +49,15 @@ registerLocaleData(zh);
     MessagesComponent,
     DashboardComponent,
 
+    // example
+    szjIndex,
+
+    // public component
     HomeComponent,
     HeaderComponent,
     FooterComponent,
     NavleftComponent,
-
+    // tong's component
     FastComponent,
     ListComponent,
     CounselComponent,
@@ -74,6 +81,7 @@ registerLocaleData(zh);
   providers: [
     // 解决服务器上刷新404的问题,这样路径中会有# ,很难看
     // {provide: LocationStrategy, useClass: HashLocationStrategy}
+    /** 配置 ng-zorro-antd 国际化 **/
     DaikuanService, { provide: NZ_I18N, useValue: zh_CN }
   ],
   bootstrap: [AppComponent]

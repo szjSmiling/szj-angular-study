@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
      var number = this.DaikuanService.getnumber()
      this.DaikuanService.getHomeInfo().subscribe( res=> {
-        console.log(res)
+        // console.log(res)
         this.home_list = res['list2']
         this.home_list1 = res['list3']
         this.list = res['list4']

@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from '../app/heroes/heroes.component';
 import { DashboardComponent }   from '../app/dashboard/dashboard.component';
 import { HeroDetailComponent }  from '../app/hero-detail/hero-detail.component';
-// 自己的例子
+// tong's example
 import { HomeComponent } from '../app/pages/aa-home/home.component';
 import { FastComponent } from '../app/pages/aa-fast/fast.component';
 import { ListComponent } from '../app/pages/aa-list/list.component';
@@ -14,10 +14,16 @@ import { AppdownComponent } from '../app/pages/aa-appdown/appdown.component';
 import { AboutUsComponent } from '../app/pages/aa-about-us/about-us.component';
 import { DetailComponent } from '../app/pages/aa-detail/detail.component';
 
+// 自己的例子
+import { szjIndex } from '../app/study/index';
+
 const routes: Routes = [
   // 添加自定义默认路由,这个路由会把一个与空路径“完全匹配”的 URL 重定向到路径为 '/dashboard' 的路由。
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
+  {path: 'index', component: szjIndex },
+
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: 'home', component: HomeComponent },
   {path: 'fast', component: FastComponent,},
   {path: 'list', component: ListComponent,},
   {path: 'counsel', component: CounselComponent,},
