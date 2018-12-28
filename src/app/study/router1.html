@@ -1,0 +1,15 @@
+<div id="szj-router1">
+  <div class="list_title">
+    <nz-tabset>
+      <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate" (nzClick)="selectItem(tab)">
+        <ng-template #titleTemplate >
+          <i nz-icon [type]="tab.icon"></i>{{ tab.name }}
+        </ng-template>
+        {{ tab.name }}
+      </nz-tab>
+    </nz-tabset>
+  </div>
+  <div class="child_content">
+    <szj-com *ngIf="childName === '组件1'" [fromFatherValue]="fromParent" (fromChild)="fromChildCom($event)"></szj-com>
+  </div>
+</div>

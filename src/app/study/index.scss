@@ -4,43 +4,87 @@
   margin:auto;
   color:#333;
   background: $white;
-  p{
-    font{
-      size:14px;
-    }
-    background: $white;
-  }
   h5{
     margin:10px 0;
     font-size:14px;
-    // overflow: hidden;
-    // white-wrap:nowrap;
-    // text-overflow: ellipsis;
+  }
+  p{
+    background: $white;
+    font{
+      size:14px;
+    }
   }
   .gutter-box {
     background: #00A0E9;
     padding: 5px;
     color:$white;
   }
-  .gutter-box1{
-    border:1px solid gainsboro;
-  }
-  .gutter-box2{
-    margin:10px 0;
-    @extend .gutter-box1;
-  }
   .advImg img{
     height:60px;
     cursor: pointer;
     vertical-align: top;
   }
-  .gutter-box3{
-    li{
-      margin:10px 0;
-      padding-left:10px;
-      span{color:#f00;}
-      button{cursor: pointer;}
+  .tem_content{
+    .gutter-box1{
+      border-bottom:1px solid gainsboro;
     }
-    li:first-child{cursor: pointer;}
+    .gutter-box2{
+      margin:10px 0;
+      @extend .gutter-box1;
+    }
+    .gutter-box3{
+      li{
+        margin:10px 0 0;
+        padding-left:10px;
+        p{padding-left: 10px;}
+        span{color:#f00;}
+        button{cursor: pointer;}
+        //:host ::ng-deep
+        .test_input{}
+      }
+      li:first-child{cursor: pointer;}
+      .form_li{
+        color:#F1A325;
+        form{
+          display:inline-block;
+          border:1px solid #F1A325;
+          .form-group{
+            padding:10px 20px;
+            label{
+              display: block;
+              text-align: left;
+              color:#333;
+            }
+            .form-control {
+              width:200px;
+              height:30px;
+              padding:5px 0 5px 5px;
+              border-radius:2px;
+              margin-top:8px;
+              outline-color: #145CCD;
+            }
+            button{
+              width:80px;
+              color:$white;
+              background: #38B03F;
+              border-radius:2px;
+              border:0;
+              padding:5px 10px;
+            }
+            .issubmit{
+              background: #7ECC82;
+            }
+          }
+          .alert-info{
+            padding:10px 20px;
+            color:#5BAFD5;
+            background: #DDF3F5;
+          }
+        }
+      }
+    }
+  }
+  .tem_title{
+
   }
 }

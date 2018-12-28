@@ -16,11 +16,15 @@ import { DetailComponent } from '../app/pages/aa-detail/detail.component';
 
 // 自己的例子
 import { szjIndex } from '../app/study/index';
+import { SzjRouter1 } from '../app/study/router1';
+import { SzjRouter2 } from '../app/study/router2';
 
 const routes: Routes = [
   // 添加自定义默认路由,这个路由会把一个与空路径“完全匹配”的 URL 重定向到路径为 '/dashboard' 的路由。
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   {path: 'index', component: szjIndex },
+  {path: 'router1', component: SzjRouter1 },
+  {path: 'router2', component: SzjRouter2 },
 
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomeComponent },

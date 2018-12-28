@@ -17,6 +17,10 @@ export class szjIndex implements OnInit {
     new Hero(3, 'Magneta', false),
     new Hero(4, 'Tornado', false),
   ];
+  // ngForm
+  stu = {};//空对象
+  public issubmit: boolean = false;
+
   constructor(){
 
   }
@@ -42,4 +46,16 @@ export class szjIndex implements OnInit {
     }
   }
 
+  changeValue(e, value){
+    // 模板引用变量
+    console.log("attribute:value="+e.currentTarget.getAttribute("value"))
+  }
+  onSubmit(stuForm) {
+    console.info(stuForm);
+    this.issubmit = true;
+    setTimeout(() => {
+      this.issubmit = false;
+      // this.stu = {}; 初始化form
+    }, 1000);
+  }
 }

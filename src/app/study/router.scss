@@ -1,0 +1,16 @@
+#szj-router1{
+  width:700px;
+  margin:auto;
+  background: #fff;
+  padding-left:20px;
+  .list_title{
+
+  }
+  .child_content{
+
+  }
+}
+
+#szj-router2{
+  @extend #szj-router1;
+}

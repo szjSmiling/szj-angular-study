@@ -18,6 +18,9 @@ import zh from '@angular/common/locales/zh';
 
 // szj-study angular's kind of function
 import { szjIndex } from './study/index';
+import { SzjCom } from './study/com/com';
+import { SzjRouter1 } from './study/router1';
+import { SzjRouter2 } from './study/router2';
 
 // 组件
 import { HeroesComponent } from './heroes/heroes.component';
@@ -51,6 +54,9 @@ registerLocaleData(zh);
 
     // example
     szjIndex,
+    SzjCom,
+    SzjRouter1,
+    SzjRouter2,
 
     // public component
     HomeComponent,
