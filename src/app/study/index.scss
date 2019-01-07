@@ -5,7 +5,7 @@
   color:#333;
   background: $white;
   h5{
-    margin:10px 0;
+    padding:10px 0 0;
     font-size:14px;
   }
   p{
@@ -24,7 +24,12 @@
     cursor: pointer;
     vertical-align: top;
   }
+  .cross_line{
+    height:10px;
+    background: #eee;
+  }
   .tem_content{
+    padding-bottom: 100px;
     .gutter-box1{
       border-bottom:1px solid gainsboro;
     }
@@ -40,12 +45,14 @@
         span{color:#f00;}
         button{cursor: pointer;}
         //:host ::ng-deep
-        .test_input{}
       }
       li:first-child{cursor: pointer;}
       .form_li{
         color:#F1A325;
         form{
+          max-width: 240px;
+          max-height:266px;
+          float:left;
           display:inline-block;
           border:1px solid #F1A325;
           .form-group{
@@ -81,10 +88,76 @@
             background: #DDF3F5;
           }
         }
+        .switch_li{
+          float: left;
+          max-width:220px;
+          border:1px solid #999;
+          padding:10px;
+          margin-left:10px;
+          div{margin-bottom:10px}
+        }
+        .filter_li{
+          float: right;
+          margin-right: 90px;
+          max-width:220px;
+          margin-left: 10px;
+          padding:10px;
+          border:1px solid #999;
+        }
+        .filter_li2, .filter_li3{
+          @extend .filter_li;
+          float: left;
+          margin-right: 0;
+          margin-top: 5px;
+          width:216px;
+        }
+        .filter_li3{
+          margin-bottom: 0;
+        }
+      }
+    }
+    .gutter-box4{
+      width:358px;
+      padding-left:10px;
+      button{
+        padding:5px 10px;
+        background: #eee;
+        border:0;
+        border-radius:2px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      button:hover,button:active{
+        color:#fff;
+        background: #999;
+      }
+      .seconds{
+        width:100px;
+        height:100px;
+        line-height: 100px;
+        text-align: center;
+        font-size:30px;
+        color:#f00;
+        background: #000;
+      }
+    }
+    .gutter_parent{margin-left: 20px;}
+    .gutter-box5{
+      padding-left: 10px;
+      button{
+        padding:5px 10px;
+        background: #eee;
+        border:0;
+        color:#f00;
+        border-radius:2px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      button:hover,button:active{
+        background: #f4f4f4;
       }
     }
   }
   .tem_title{
-
   }
 }

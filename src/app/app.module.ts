@@ -21,6 +21,9 @@ import { szjIndex } from './study/index';
 import { SzjCom } from './study/com/com';
 import { SzjRouter1 } from './study/router1';
 import { SzjRouter2 } from './study/router2';
+import { AstronautComponent } from './study/com/astronaut.component';
+import { AppCountdownTimerComponent } from './study/com/app-countdown-timer/app-countdown-timer.component';
+import { AppCountdownTimerComponent2 } from './study/com/app-countdown-timer/app-countdown-timer.component2';
 
 // 组件
 import { HeroesComponent } from './heroes/heroes.component';
@@ -41,6 +44,7 @@ import { AppdownComponent } from './pages/aa-appdown/appdown.component';
 import { AboutUsComponent } from './pages/aa-about-us/about-us.component';
 import { DetailComponent } from './pages/aa-detail/detail.component';
 import { NavtopComponent } from './pages/navtop/navtop.component';
+import { PipesPipe } from './study/utils/pipes.pipe';
 
 registerLocaleData(zh);
 
@@ -57,6 +61,9 @@ registerLocaleData(zh);
     SzjCom,
     SzjRouter1,
     SzjRouter2,
+    AstronautComponent,
+    AppCountdownTimerComponent,
+    AppCountdownTimerComponent2,
 
     // public component
     HomeComponent,
@@ -70,7 +77,8 @@ registerLocaleData(zh);
     AppdownComponent,
     AboutUsComponent,
     DetailComponent,
-    NavtopComponent
+    NavtopComponent,
+    PipesPipe,
   ],
   imports: [
     BrowserModule,

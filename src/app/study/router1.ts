@@ -17,11 +17,11 @@ export class SzjRouter1 implements OnInit {
 
   }
   ngOnInit(){
-    console.log("进入router1,  ngOnInit");
+    console.log("进入router1.  ngOnInit");
     this.changeDOM();
   }
   ngAfterContentInit(){
-    console.log("组建内容初始化后调用.--父  ngAfterContentInit")
+    console.log("组建内容初始化后调用--父页面  ngAfterContentInit")
   }
   ngAfterViewInt(){
     console.log("组件相应的视图初始化之后调用.  ngAfterViewInt")

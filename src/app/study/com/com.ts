@@ -16,20 +16,20 @@ export class SzjCom implements OnInit {
   ngOnChanges(changes: SimpleChanges) { // 先于ngOnInit调用
     if(!changes.fromFatherValue.firstChange){
       this.fromFatherValue = changes.fromFatherValue.currentValue;
-      console.log("父 --> 子: "+this.fromFatherValue);
+      console.log("父 --> 子: "+this.fromFatherValue+"  ngOnChanges");
     }
   }
 
-  ngAfterContentInit(){
-    console.log("组建内容初始化后调用.--子")
+  ngOnInit(){
+    console.log("父 --> 子: "+this.fromFatherValue+"  ngOnInit");
   }
 
-  ngOnInit(){
-    console.log("父 --> 子: "+this.fromFatherValue);
+  ngAfterContentInit(){
+    console.log("组建内容初始化后调用--子页面  ngAfterContentInit")
   }
 
   transInfo(){
-    console.log("emit 传递消息");
+    console.log("emit 开始传递消息......");
     this.fromChild.emit(this.info);
   }
 }

@@ -1,29 +1,60 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Hero } from '../herolist/hero';
+import { AppCountdownTimerComponent2 } from './com/app-countdown-timer/app-countdown-timer.component2';
+import { MissionService } from './com/missioncontrol.service';
 
 @Component({
   selector: 'szj-index',
   templateUrl: './index.html',
-  styleUrls: ['./index.scss']
+  styleUrls: ['./index.scss'],
+  providers: [MissionService]
 })
 
 export class szjIndex implements OnInit {
-  elClass : string;
-  addClass : boolean = true;
-  imgUrl: string = '../../assets/img/weixin.png';
-  dataList = [
+  // method2: ViewChild
+  @ViewChild(AppCountdownTimerComponent2)
+  private timerComponent: AppCountdownTimerComponent2
+  seconds() { return 0; }
+  ngAfterViewInit() {
+    setTimeout(()=> this.seconds = () => this.timerComponent.seconds, 0)
+  }
+  start() { this.timerComponent.start(); }
+  stop() { this.timerComponent.stop(); }
+
+  // method3: service
+  astronauts = ['Lovell', 'Swigert', 'Haise']
+  history: string[] = []
+  missions = ['Fly to the moon!', 'Fly to mars!', 'Fly to Vegas']
+  nextMisson = 0;
+
+  // 基本数据
+  num: number = 0;
+  pi:number = 3.14159;
+  a:number = 8.2515;
+  b:number = 156.548;
+  today: Date = new Date();
+  title: string = "test";
+  public elClass : string;
+  public addClass : boolean = true;
+  public stu = {};//空对象
+  public issubmit: boolean = false;
+  public imgUrl: string = '../../assets/img/weixin.png';
+  public dataList = [
     new Hero(1, 'Windstorm', false),
     new Hero(2, 'Bombasto', false),
     new Hero(3, 'Magneta', false),
     new Hero(4, 'Tornado', false),
   ];
-  // ngForm
-  stu = {};//空对象
-  public issubmit: boolean = false;
 
-  constructor(){
-
+  constructor( private missonService: MissionService ){
+    // service
+    missonService.missionConfirmed$.subscribe(
+      astronaut => {
+        this.history.push(`${astronaut} confirmed the mission.`)
+      }
+    )
   }
+
   ngOnInit(){
     console.log("开始学习angular");
   }
@@ -55,7 +86,23 @@ export class szjIndex implements OnInit {
     this.issubmit = true;
     setTimeout(() => {
       this.issubmit = false;
-      // this.stu = {}; 初始化form
+      // this.stu = {}; // 初始化form
     }, 1000);
+  }
+  changeElement(): void { // ngSwitch ,用于多个组件之间的切换
+    if (this.num > 3) {
+      this.num = 0;
+    }
+    this.num++;
+  }
+
+  // service
+  announce() {
+    let mission = this.missions[this.nextMisson ++]
+    this.missonService.announceMission(mission)
+    this.history.push(`Mission "${mission}" announced`)
+    if (this.nextMisson >= this.missions.length ) {
+      this.nextMisson = 0;
+    }
   }
 }
