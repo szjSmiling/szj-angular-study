@@ -1,12 +1,16 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, Injector, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Hero } from '../herolist/hero';
 import { AppCountdownTimerComponent2 } from './com/app-countdown-timer/app-countdown-timer.component2';
 import { MissionService } from './com/missioncontrol.service';
+import { createCustomElement } from '@angular/elements';
+import { PopupComponent } from './popup/popup.component';// 自定义弹框
+import { PopupService } from './popup/popup.service';// 自定义弹框
 
 @Component({
   selector: 'szj-index',
   templateUrl: './index.html',
   styleUrls: ['./index.scss'],
+  // styles: ['h1 { font-weight: normal; }'],
   providers: [MissionService]
 })
 
@@ -46,13 +50,16 @@ export class szjIndex implements OnInit {
     new Hero(4, 'Tornado', false),
   ];
 
-  constructor( private missonService: MissionService ){
+  constructor( private missonService: MissionService, injector: Injector, public popup: PopupService ){
     // service
     missonService.missionConfirmed$.subscribe(
       astronaut => {
         this.history.push(`${astronaut} confirmed the mission.`)
       }
     )
+    const PopupElement = createCustomElement(PopupComponent, {injector});
+    // Register the custom element with the browser.
+    customElements.define('popup-element', PopupElement);
   }
 
   ngOnInit(){

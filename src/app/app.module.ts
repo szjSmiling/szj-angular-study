@@ -19,11 +19,15 @@ import zh from '@angular/common/locales/zh';
 // szj-study angular's kind of function
 import { szjIndex } from './study/index';
 import { SzjCom } from './study/com/com';
+import { SzjCom2 } from './study/com/com-2';
 import { SzjRouter1 } from './study/router1';
 import { SzjRouter2 } from './study/router2';
+import { directives } from './study/directives/directive';
+import { importComs } from './study/comMgr';
 import { AstronautComponent } from './study/com/astronaut.component';
 import { AppCountdownTimerComponent } from './study/com/app-countdown-timer/app-countdown-timer.component';
 import { AppCountdownTimerComponent2 } from './study/com/app-countdown-timer/app-countdown-timer.component2';
+import { PopupService } from './study/popup/popup.service';
 
 // 组件
 import { HeroesComponent } from './heroes/heroes.component';
@@ -45,6 +49,7 @@ import { AboutUsComponent } from './pages/aa-about-us/about-us.component';
 import { DetailComponent } from './pages/aa-detail/detail.component';
 import { NavtopComponent } from './pages/navtop/navtop.component';
 import { PipesPipe } from './study/utils/pipes.pipe';
+import { PopupComponent } from './study/popup/popup.component';
 
 registerLocaleData(zh);
 
@@ -59,8 +64,11 @@ registerLocaleData(zh);
     // example
     szjIndex,
     SzjCom,
+    SzjCom2,
     SzjRouter1,
     SzjRouter2,
+    ...importComs,
+    ...directives,
     AstronautComponent,
     AppCountdownTimerComponent,
     AppCountdownTimerComponent2,
@@ -79,6 +87,7 @@ registerLocaleData(zh);
     DetailComponent,
     NavtopComponent,
     PipesPipe,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,10 +102,15 @@ registerLocaleData(zh);
     // ),
   ],
   providers: [
+    PopupService,
     // 解决服务器上刷新404的问题,这样路径中会有# ,很难看
     // {provide: LocationStrategy, useClass: HashLocationStrategy}
     /** 配置 ng-zorro-antd 国际化 **/
     DaikuanService, { provide: NZ_I18N, useValue: zh_CN }
+  ],
+  entryComponents: [
+    PopupComponent,
+    ...importComs
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';//  注入器
 import { Subject } from 'rxjs';
 
 @Injectable({
