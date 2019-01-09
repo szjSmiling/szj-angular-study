@@ -24,6 +24,7 @@ import { SzjRouter1 } from './study/router1';
 import { SzjRouter2 } from './study/router2';
 import { directives } from './study/directives/directive';
 import { importComs } from './study/comMgr';
+import { pipes } from './study/pipes/index';
 import { AstronautComponent } from './study/com/astronaut.component';
 import { AppCountdownTimerComponent } from './study/com/app-countdown-timer/app-countdown-timer.component';
 import { AppCountdownTimerComponent2 } from './study/com/app-countdown-timer/app-countdown-timer.component2';
@@ -69,6 +70,7 @@ registerLocaleData(zh);
     SzjRouter2,
     ...importComs,
     ...directives,
+    ...pipes,
     AstronautComponent,
     AppCountdownTimerComponent,
     AppCountdownTimerComponent2,

@@ -17,7 +17,7 @@ export class SzjRouter1 implements OnInit {
   constructor(
     private cp : Compiler, // 动态创建组件需要
     private cfr: ComponentFactoryResolver // 动态加载已声明的组件需要
-  ){  }
+  ){  this.reset(); }
   addComponent() {
     this.index = !this.index;
     let com;
@@ -47,6 +47,48 @@ export class SzjRouter1 implements OnInit {
   }
   // directives
   radioValue: string = '';
+  public showSad: boolean = true;
+  public hero: string = "excited";
+  public heroes = [
+    {id:0, name: "Mr.Nice", emotion: "happy", flag: true},
+    {id:1, name: "Mr.Wang", emotion: "sad", flag: false},
+    {id:2, name: "Mrs.Li", emotion: "confused", flag: true},
+    {id:3, name: "Mrs.Sun", emotion: "excited", flag: false}
+  ];
+  trackById(index: number, hero): number {
+    return hero.id;
+  }
+
+  // pipe
+  power: number = 2;
+  factor: number = 5;
+  canFly = true;
+  herolist: any[] = [
+    {name: "Sun", canFly: true},
+    {name: "Jie", canFly: false},
+    {name: "Jelly", canFly: true},
+  ];
+  herolist2: any[] = [
+    {name: "Sun", canFly: true},
+    {name: "Jie", canFly: false},
+    {name: "Jelly", canFly: true},
+  ];
+  addHero(name: string, type: number) {
+    name = name.trim();
+    if (!name) { return; }
+    let hero = {name, canFly: this.canFly};
+    if(type === 1){
+      // 直接使用 this.herolist.push(hero), 不会被检测更新.
+      // 需要新建数组.
+      let arr = new Array();
+      arr.push(hero);
+      this.herolist = [...this.herolist,...arr];
+    }else if(type === 2){
+      // 方法二: 使用非纯pipe
+      this.herolist.push(hero);
+    }
+  }
+  reset() { this.herolist = this.herolist2 }
 
   // 基础数据
   public childName: string = '组件1';
@@ -59,7 +101,8 @@ export class SzjRouter1 implements OnInit {
     console.log("进入router1.  ngOnInit");
     let com = this.cfr.resolveComponentFactory( coms['AdComponent1'] );
     this.dmRoom.createComponent( com );
-    this.changeDOM();
+    let arr = this.changeDOM();
+    console.log(arr)
   }
   ngAfterContentInit(){
     console.log("组建内容初始化后调用--父页面  ngAfterContentInit")
@@ -82,7 +125,8 @@ export class SzjRouter1 implements OnInit {
     this.fromParent = "别叫了, 我听见了!";
   }
 
-  changeDOM(){
+  changeDOM(){ // 过滤数组
     console.log("操作DOM的方法.  ngOnInit");
+    return this. heroes.filter(hero => hero.flag )
   }
 }

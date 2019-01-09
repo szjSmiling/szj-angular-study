@@ -21,7 +21,7 @@
     <section class="dmRoom" #dmroom></section>
   </div>
   <div class="my-directives">
-    <h3>2.1 Directives ,属性型指令</h3>
+    <h3>2.1 Directives ,属性型指令, 职责是 DOM 元素的外观或行为.</h3>
     <nz-radio-group [(ngModel)]="radioValue">
       <label nz-radio nzValue="yellow">yellow</label>
       <label nz-radio nzValue="orange">orange</label>
@@ -33,6 +33,58 @@
   </div>
   <div class="my-directives">
     <h3>2.2 Directives ,结构型指令, 职责是 HTML 布局.</h3>
-
+    <div>
+      Pick your favorite hero
+      <label><input type="checkbox" checked [(ngModel)]="showSad" />show sad</label>
+    </div>
+    <select [(ngModel)]="hero">
+      <!-- <option value="请选择操作动作">请选择操作动作</option> -->
+      <ng-container *ngFor="let h of heroes">
+        <ng-container *ngIf="showSad || h.emotion !== 'sad'">
+          <option [ngValue]="h.emotion" [selected]="h.emotion === 'excited' ">{{h.name}} ({{h.emotion}})</option>
+        </ng-container>
+      </ng-container>
+    </select>
+    <h3>2.21 自定义结构型指令</h3>
+    <p *appUnless="showSad" class="unless a">
+      (A) This paragraph is displayed because the showSad is false.
+    </p>
+    <p *appUnless="!showSad" class="unless b">
+      (B) Although the showSad is true,<br>
+      this paragraph is displayed because appUnless is set to false.
+    </p>
+  </div>
+  <div class="my-pipe">
+    <h3>3. trackBy 的简单使用</h3>
+    <div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+      ({{i}}) {{hero.name}}
+    </div>
+    <h3>4.1 自定义管道pipe</h3>
+    <h2>Power Boost Calculator</h2>
+    <div class="pipe-div disflex">
+      <p>Normal power: </p>
+      <input [(ngModel)]="power">
+    </div>
+    <div class="pipe-div disflex">
+      <p>Boost factor: </p>
+      <input [(ngModel)]="factor">
+    </div>
+    <p>Super Hero Power: {{power | exponentialStrength: factor}}</p>
+    <h3>4.2 会飞的管道(纯pipe)</h3>
+    <input type="text" #box
+      (keyup.enter)="addHero(box.value, 1); box.value=''"
+      placeholder="hero name">
+    <button (click)="reset()">Reset</button>
+    <div *ngFor="let hero of (herolist | flyingHeroesPure )">
+      {{hero.name}} can fly?{{hero.canFly}}
+    </div>
+    <h3>4.3 会飞的管道(非纯pipe)</h3>
+    <input type="text" #box1
+      (keyup.enter)="addHero(box1.value, 2); box1.value=''"
+      placeholder="hero name">
+    <button (click)="reset()">Reset</button>
+    <div *ngFor="let hero of (herolist | flyingHeroesImpure )">
+      {{hero.name}} can fly?{{hero.canFly}}
+    </div>
   </div>
 </div>

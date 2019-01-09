@@ -33,6 +33,28 @@
     p,.ant-radio-group{
       margin-top:10px;
     }
+    input{
+      margin:0 2px 0 5px;
+      vertical-align: middle;
+    }
+  }
+  .my-pipe{
+    padding-left:20px;
+    .pipe-div{
+      p{
+        width:100px;
+        text-align: justify;
+        text-align-last: justify;
+        text-justify:inter-ideograph;/*IE*/
+      }
+      input{
+        width:50px;
+        margin-left: 5px;
+      }
+    }
+    button{
+      cursor: pointer;
+    }
   }
 }
 
