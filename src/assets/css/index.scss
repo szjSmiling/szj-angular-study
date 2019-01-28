@@ -1,0 +1,15 @@
+/*定义背景图片的路径*/
+@mixin bgImg($pathNo, $pathName, $name) {
+    @if $pathNo==2 {
+        background: url('./../../assets/img/'+$pathName+'/' + $name) no-repeat;
+    }
+    @if $pathNo==3 {
+        background: url('./../../../assets/img/'+$pathName+'/' + $name) no-repeat;
+    }
+    @if $pathNo==4 {
+        background: url('./../../../../assets/img/'+$pathName+'/' + $name) no-repeat;
+    }
+    @if $pathNo==5 {
+        background: url('./../../../../../assets/img/'+$pathName+'/' + $name) no-repeat;
+    }
+}

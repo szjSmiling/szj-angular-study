@@ -59,7 +59,7 @@ export class szjIndex implements OnInit {
     )
     const PopupElement = createCustomElement(PopupComponent, {injector});
     // Register the custom element with the browser.
-    customElements.define('popup-element', PopupElement);
+    // customElements.define('popup-element', PopupElement);
   }
 
   ngOnInit(){

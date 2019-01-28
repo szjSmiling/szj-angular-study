@@ -60,4 +60,25 @@
 
 #szj-router2{
   @extend #szj-router1;
+  padding:10px 10px;
+  .form-title{
+    cursor: pointer;
+    li{
+      list-style: none;
+      color:#000;
+      font-size:16px;
+      background: #eee;
+      padding:5px 10px;
+    }
+    li:nth-child(-n+2){
+      margin-right: 20px;
+    }
+    .active{
+      color:#f00;
+    }
+  }
+  .form-group{
+    margin: 10px 0;
+
+  }
 }

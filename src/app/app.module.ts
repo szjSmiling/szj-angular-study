@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';// <-- NgModel lives here
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';// <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule }    from '@angular/common/http';// 导入 HttpClientModule 符号，
@@ -20,6 +20,8 @@ import zh from '@angular/common/locales/zh';
 import { szjIndex } from './study/index';
 import { SzjCom } from './study/com/com';
 import { SzjCom2 } from './study/com/com-2';
+import { NameEditComponent } from './study/com/form/name-edit';
+import { SzjFormValid } from './study/com/form/valid';
 import { SzjRouter1 } from './study/router1';
 import { SzjRouter2 } from './study/router2';
 import { directives } from './study/directives/directive';
@@ -74,6 +76,9 @@ registerLocaleData(zh);
     AstronautComponent,
     AppCountdownTimerComponent,
     AppCountdownTimerComponent2,
+    // form 表单
+    SzjFormValid,
+    NameEditComponent,
 
     // public component
     HomeComponent,
@@ -94,6 +99,7 @@ registerLocaleData(zh);
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     NgZorroAntdModule.forRoot(),// NG-ZORRO设定

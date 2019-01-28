@@ -1,0 +1,68 @@
+<div class="form-child">
+  <div class="form-child_div1">
+    <h3>1.管理控件的值</h3>
+    <div class="child_div1_content">
+      <p><label>Name:<input type="text" [formControl]="name" name="name"></label></p>
+      <p>Value: {{name.value}}</p>
+    </div>
+  </div>
+  <div class="form-child_div1">
+    <h3>2.替换表单控件的值</h3>
+    <div class="child_div1_content">
+      <button (click)="updateName()">Update Name</button>
+    </div>
+  </div>
+  <div class="form-child_div1">
+    <h3>3.把表单控件分组</h3>
+    <div class="child_div1_content">
+      <form class="form_address disflex" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <p>First Name:<input type="text" formControlName="firstName" required></p>
+        <p>Last Name:<input type="text" formControlName="lastName"></p>
+      </form>
+    </div>
+  </div>
+  <div class="form-child_div1">
+    <h3>4.嵌套的表单组</h3>
+    <div class="child_div1_content">
+      <h3>Address</h3>
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <div class="form_address disflex" formGroupName="address">
+          <p><span>Street:</span><input type="text" formControlName="street"></p>
+          <p><span>City:</span><input type="text" formControlName="city"></p>
+          <p><span>State:</span><input type="text" formControlName="state"></p>
+          <p><span>Zip Code:</span> <input type="text" formControlName="zip"></p>
+        </div>
+        <!-- 使用表单数组管理动态控件 -->
+        <h3>8.使用表单数组管理动态控件</h3>
+        <div formArrayName="aliases">
+          <button (click)="addAlias()">Add Alias</button>
+          <div *ngFor="let address of aliases.controls; let i=index">
+            <p>Alias: <input type="text" [formControlName]="i"></p>
+          </div>
+        </div>
+        <!-- 使用表单数组管理动态控件 -->
+        <p>* form 标签所发出的 submit 事件是原生 DOM 事件,通过点击类型为 submit 的按钮可以触发.</p>
+        <button type="submit" [ngClass]="{cantClick:!profileForm.valid}" [disabled]="!profileForm.valid">Submit</button>
+      </form>
+    </div>
+    <h3>5.部分模型更新</h3>
+    <ul class="child_div1_content">
+      <li>使用 setValue() 方法来为单个控件设置新值。 setValue() 方法会严格遵循表单组的结构，并整体性替换控件的值。</li>
+      <li>使用 patchValue() 方法可以用对象中所定义的任何属性为表单模型进行替换。</li>
+    </ul>
+    <button (click)="updateProfile()" [disabled]="!profileForm.valid"
+      [ngClass]="{cantClick:!profileForm.valid}">Update Profile
+    </button>
+  </div>
+  <div class="form-child_div1">
+    <h3>6.使用 FormBuilder 来生成表单控件</h3>
+    <div class="child_div1_content">
+      <p>FormBuilder 服务有三个方法：control()、group() 和 array()。这些方法都是工厂方法，用于在组件类中分别生成 FormControl、FormGroup 和 FormArray。</p>
+    </div>
+    <h3>7.简单表单验证</h3>
+    <div class="child_div1_content">
+      <p>Form valid: {{ profileForm.valid }}</p>
+      <p>Form Status: {{ profileForm.status }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="szj-valid">
+  <div class="form-list">
+    <form class="form1" #myForm = "ngForm" action="" (ngSubmit)="onSubmit(1, myForm.value)">
+      <div><span>用户名：</span><input #username = "ngModel" ngModel  type="text" name="username"></div>
+      <div><span>电话：</span><input ngModel type="number" name="mobile"></div>
+      <div ngModelGroup = "passwordGroup">
+        <div> <span>密码：</span><input ngModel  type="password" name="password"></div>
+        <div><span>确认密码：</span><input ngModel type="password" name="pconfirm"></div>
+      </div>
+      <div><button type="submit">注册</button></div>
+    </form>
+    <form class="form2" [formGroup]="registForm" (ngSubmit)="onSubmit(2, registForm.value)">
+      <div [ngClass]="{'right-div':registForm.get('username').valid || registForm.get('username').untouched}"><span>用户名</span><input type="text" placeholder="请输入用户名" formControlName="username" /></div>
+      <div class="err-div" [hidden]="registForm.get('username').valid || registForm.get('username').untouched">
+        <p [hidden]="!registForm.hasError('required','username')">*用户名是必填的</p>
+        <p [hidden]="!registForm.hasError('minlength','username')">*用户名最小长度是6</p>
+    </div>
+      <div [ngClass]="{'right-div':registForm.get('mobile').valid || registForm.get('mobile').pristine}"><span>手机号码:</span><input type="text" placeholder="请输入手机号码" formControlName="mobile"/></div>
+      <div class="err-div" [hidden]="registForm.get('mobile').valid || registForm.get('mobile').pristine">
+          <p [hidden]="!registForm.hasError('mobile', 'mobile')">{{registForm.getError('mobile', 'mobile')?.info}}</p>
+      </div>
+
+      <div formGroupName="passwordGroup">
+          <div [ngClass]="{'right-div':!registForm.hasError('minlength',['passwordGroup','password'])}"><span>密码:</span><input type="password" placeholder="请输入密码" formControlName="password" /></div>
+          <div class="err-div" [hidden]="!registForm.hasError('minlength',['passwordGroup','password'])"><p>*密码最小长度是6</p></div>
+          <div [ngClass]="{'right-div':!registForm.hasError('equal','passwordGroup') || this.registForm.get('passwordGroup').get('pconfirm').untouched || registForm.hasError('minlength',['passwordGroup','password'])}"><span>确认密码:</span><input type="password" placeholder="请再次输入密码" formControlName="pconfirm"/></div>
+          <div class="err-div" [hidden]="!registForm.hasError('equal','passwordGroup') || this.registForm.get('passwordGroup').get('pconfirm').untouched || registForm.hasError('minlength',['passwordGroup','password'])">
+            <p>{{registForm.getError('equal', 'passwordGroup')?.info}}</p>
+          </div>
+      </div>
+      <div class="right-div"><button type="submit" [disabled]="!registForm.valid">注册</button></div>
+  </form>
+  </div>
+  <div class="test-image clearfix">
+    <div class="fl"></div>
+    <div class="fl"></div>
+    <div class="fl"></div>
+  </div>
+</div>

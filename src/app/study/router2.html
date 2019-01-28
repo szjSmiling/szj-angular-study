@@ -1,3 +1,16 @@
 <div id="szj-router2">
-  路由2
+  <ul class="form-title disflex" >
+    <li [ngClass]="{active:showItem1}" (click)="switchTitle(1)">1.响应式表单简介</li>
+    <li [ngClass]="{active:showItem2}" (click)="switchTitle(2)">2.模板驱动表单简介</li>
+    <li [ngClass]="{active:showItem3}" (click)="switchTitle(3)">3.表单验证</li>
+  </ul>
+  <div class="form-group form-group1" *ngIf="showItem1">
+    <name-editor></name-editor>
+  </div>
+  <div class="form-group form-group2" *ngIf="showItem2">
+
+  </div>
+  <div class="form-group form-group3" *ngIf="showItem3">
+    <szj-valid></szj-valid>
+  </div>
 </div>

@@ -1,0 +1,95 @@
+.form-child{
+  .form-child_div1{
+    width:600px;
+    button, p, li{ margin-bottom:5px; }
+    h3{
+      @extend p;
+      font-weight: bold;
+    }
+    button:hover{ background: #f4f4f4;}
+    .cantClick{background: #f4f4f4;color:#f00;}
+    .child_div1_content{
+      margin-left: 20px;
+      p span{
+        display:inline-block;
+        width:65px;
+        margin-right: 5px;
+        word-wrap:break-word;
+        text-align:justify;
+      }
+      .form_address{
+        flex-wrap:wrap;
+        p{margin-right: 20px;}
+      }
+    }
+  }
+}
+
+// 表单验证
+.szj-valid{
+  .form-list{
+    margin-bottom: 10px;
+    .form1{
+      width:300px;
+      float: left;
+      padding-top: 10px;
+      border-radius:4px;
+      border:1px solid #eee;
+      div{
+        text-align: center;
+        margin-bottom: 10px;
+        span{
+          display:inline-block;
+          width:80px;
+          text-align: justify;
+        }
+        button{
+          padding:5px 20px;
+        }
+      }
+    }
+    .form2{
+      @extend .form1;
+      margin-left: 10px;
+      div{margin-bottom: 0;}
+      .err-div{
+        margin-bottom: 10px;
+        p{
+          text-align: left;
+          color:#f00;
+          margin-left: 112px;
+        }
+      }
+      .right-div{margin-bottom: 10px;}
+
+    }
+    &:after{
+      display: block;
+      content:"";
+      clear: both;
+      *zoom:1;
+    }
+  }
+  .test-image{
+    div{
+      width:200px;
+      height:200px;
+      // background-color: #eee;
+      // background-size: 50% auto;
+      // background-position:left 10px top 10px;
+      // background-repeat: no-repeat;
+      // background-image: url(assets/img/form/san-m.png);
+      background: url(../../../../assets/img/form/san-m.png) left 10px top 10px/50% no-repeat #f1f1f1;
+      &:nth-child(2){
+        background: url(../../../../assets/img/form/san-m.png) left top/25% #f1f1f1;
+        margin-left: 10px;
+      }
+      &:nth-child(3){
+        // @include bgImg(4, 'form', 'san-m.png');
+        background-image: @include bgImg(4, 'form', 'san-m.png');
+        // background: url(../../../../assets/img/form/san-m.png) right 10px bottom 0px/50% no-repeat #f1f1f1;
+        margin-left: 10px;
+      }
+    }
+  }
+}
