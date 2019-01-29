@@ -1,15 +1,106 @@
-/*定义背景图片的路径*/
+$lte7:true !default; // 全局变量,验证是否兼容ie6,7
+
+@mixin inline-block {
+  color:#f00;
+  display: inline-block;
+  @if $lte7 {
+    color:#00f;
+    display: inline;
+    zoom:1;
+  }
+}
+
+// ***没有参数,又想要组合申明,就需要用到 % 占位选择器.
+// 优点: 这个样式默认是不会解析出来的，等到你通过@extend调用了才会解析在css文件中, 避免了css代码冗余。
+%inline-block {
+  @include inline-block;
+}
+
+// 1.定义背景图片的路径*/
 @mixin bgImg($pathNo, $pathName, $name) {
-    @if $pathNo==2 {
-        background: url('./../../assets/img/'+$pathName+'/' + $name) no-repeat;
+  @if $pathNo==2 {
+    background-image: url('./../../assets/img/'+$pathName+'/'+ $name);
+  }
+
+  @if $pathNo==3 {
+    background-image: url('./../../../assets/img/'+$pathName+'/'+ $name);
+  }
+
+  @if $pathNo==4 {
+    background-image: url('./../../../../assets/img/'+$pathName+'/'+ $name);
+  }
+
+  @if $pathNo==5 {
+    background-image: url('./../../../../../assets/img/'+$pathName+'/'+ $name);
+  }
+}
+
+// 2.border 生成三角形
+// 参数: 第一个是方向的,第二个表示三角形的大小,第三个表示颜色.
+@mixin triangle($direction, $size, $borderColor ) {
+  content:"";
+  height: 0;
+  width: 0;
+  @if $direction == top {
+    border-bottom:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+  } @else if $direction == right {
+    border-left:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+  } @else if $direction == bottom {
+    border-top:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+  } @else if $direction == left {
+    border-right:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+  }
+}
+
+// 3.是否支持某个浏览器的前缀，如果你不想支持，可以设置为false著作权归作者所有。
+$prefix-for-webkit: true !default;
+$prefix-for-mozilla: true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera: true !default;
+$prefix-for-spec: true !default; // 标准版
+// prefixer
+@mixin prefixer ($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit and $prefix-for-webkit == true {
+      -webkit-#{$property}: $value;
+    } @else if $prefix == moz and $prefix-for-mozilla == true {
+      -moz-#{$property}: $value;
+    } @else if $prefix == ms and $prefix-for-microsoft == true {
+      -ms-#{$property}: $value;
+    } @else if $prefix == o and $prefix-for-opera == true {
+      -o-#{$property}: $value;
+    } @else if $prefix == spec and $prefix-for-spec == true {
+      #{$property}: $value;
+    } @else {
+      @warn "Unrecognized prefix: #{$prefix}";
     }
-    @if $pathNo==3 {
-        background: url('./../../../assets/img/'+$pathName+'/' + $name) no-repeat;
-    }
-    @if $pathNo==4 {
-        background: url('./../../../../assets/img/'+$pathName+'/' + $name) no-repeat;
-    }
-    @if $pathNo==5 {
-        background: url('./../../../../../assets/img/'+$pathName+'/' + $name) no-repeat;
-    }
+  }
+}
+
+
+// 定义media-queries的最小最大宽度
+@mixin screen($res-min, $res-max){
+  @media screen and ( min-width: $res-min ) and ( max-width: $res-max ){
+    @content;
+  }
+}
+// 定义animation的keyframes
+@mixin keyframes($name){
+  @keyframes #{$name} {
+    @content;
+  }
+}
+// 定义所有不支持圆角的浏览器使用背景图片 //得使用[modernizr](http://modernizr.com/)来检测，在html上加class
+@mixin no-border-radius{
+  .no-border-radius{
+    @content
+  }
 }

@@ -1,3 +1,6 @@
+$lte7: false; // 全局变量,验证是否兼容ie6,7
+@import 'assets/css/index.scss';
+
 .form-child{
   .form-child_div1{
     width:600px;
@@ -72,24 +75,63 @@
   }
   .test-image{
     div{
+      @include bgImg(4, 'form', 'san-m.png');
       width:200px;
       height:200px;
-      // background-color: #eee;
-      // background-size: 50% auto;
-      // background-position:left 10px top 10px;
-      // background-repeat: no-repeat;
-      // background-image: url(assets/img/form/san-m.png);
-      background: url(../../../../assets/img/form/san-m.png) left 10px top 10px/50% no-repeat #f1f1f1;
+      background-color: #f1f1f1;
+      background-size: 50% auto;
+      background-repeat: no-repeat;
+      background-position:left 10px top 10px;
+      // background: url(../../../../assets/img/form/san-m.png) left 10px top 10px/50% no-repeat #f1f1f1;
       &:nth-child(2){
-        background: url(../../../../assets/img/form/san-m.png) left top/25% #f1f1f1;
         margin-left: 10px;
+        background-size: 25%;
+        background-repeat: repeat;
+        background-position:left top;
       }
       &:nth-child(3){
-        // @include bgImg(4, 'form', 'san-m.png');
-        background-image: @include bgImg(4, 'form', 'san-m.png');
-        // background: url(../../../../assets/img/form/san-m.png) right 10px bottom 0px/50% no-repeat #f1f1f1;
+        @include inline-block;
         margin-left: 10px;
+        background-position:right 10px bottom;
       }
     }
   }
+  .test-scss{
+    p{
+      @extend %inline-block;
+      margin-top: 10px;
+    }
+  }
 }
+
+
+// 3.webkit moz 和标准
+@mixin box-sizing($type:border-box) {
+  // border-box | padding-box | content-box
+  @include prefixer(box-sizing, $type, webkit moz spec);
+}
+// 3.webkit moz o 和标准
+@mixin transform($property...) {
+  @include prefixer(transform, $property, webkit moz o spec);
+}
+
+// 测试scss的@mixin的写法
+@include screen(780px,1000px){
+  body{
+    font-size:14px;
+  }
+}
+@include keyframes(show){
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+.box{
+  @include no-border-radius{
+    @include bgImg( 4, 'form', 'san-m.png' );
+  }
+}
+// 渲染后的css -->.box .no-border-radius{ background:url(round-bg.gif) no-repeat; }
