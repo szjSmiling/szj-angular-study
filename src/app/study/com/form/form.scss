@@ -64,7 +64,10 @@ $lte7: false; // 全局变量,验证是否兼容ie6,7
         }
       }
       .right-div{margin-bottom: 10px;}
-
+    }
+    .form3{
+      @extend .form1;
+      margin-top: 10px;
     }
     &:after{
       display: block;
@@ -97,7 +100,7 @@ $lte7: false; // 全局变量,验证是否兼容ie6,7
     }
   }
   .test-scss{
-    p{
+    h5{
       @extend %inline-block;
       margin-top: 10px;
     }
@@ -116,12 +119,12 @@ $lte7: false; // 全局变量,验证是否兼容ie6,7
 }
 
 // 测试scss的@mixin的写法
-@include screen(780px,1000px){
+@include screen(780px,1000px) {
   body{
     font-size:14px;
   }
 }
-@include keyframes(show){
+@include keyframes(show) {
   0% {
     opacity:0;
   }
@@ -130,7 +133,7 @@ $lte7: false; // 全局变量,验证是否兼容ie6,7
   }
 }
 .box{
-  @include no-border-radius{
+  @include no-border-radius {
     @include bgImg( 4, 'form', 'san-m.png' );
   }
 }
